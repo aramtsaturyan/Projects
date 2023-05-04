@@ -1,0 +1,54 @@
+.head{
+    width: 300px;
+    height: 700px;
+    background-color: #FFFFFF;
+    
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+}
+
+.logo{
+    width: 80%;
+    height: 100px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+}
+
+.logo img{
+    width: 74px;
+    height: 20px;
+}
+
+.personState{
+    width: 80%;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap:20px;
+}
+
+.personState img{
+    margin-right: 7px;
+}
+.exit{
+    width: 80%;
+    height: 450px;
+    display: flex;
+    align-items: flex-end;
+}
+
+.exitButton{
+    background: transparent;
+    border: none;
+    color: #B4B4B4;
+    cursor: pointer;
+}
+
+.exitButton:hover{
+    text-decoration: underline;
+}
