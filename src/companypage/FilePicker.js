@@ -1,8 +1,8 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import './createpage.css'
 
 
-const FilePicker = () => {
+const FilePicker = ({handleContentChange}) => {
   const fileInputRef = useRef(null); 
   const [selectedImage, setSelectedImage] = useState(null); 
   const [error, setError] = useState(false);
@@ -22,6 +22,10 @@ const FilePicker = () => {
       setSelectedImage(file);
     }
   };
+
+  useEffect(() => {
+    handleContentChange(selectedImage)
+  }, [selectedImage])
 
   return (
     <div>

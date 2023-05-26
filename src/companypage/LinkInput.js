@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import './createpage.css'
 
-function LinkInput() {
+function LinkInput({handleStateChange}) {
   const [link, setLink] = useState("");
   const [error, setError] = useState(false);
 
@@ -15,7 +15,7 @@ function LinkInput() {
 
   return (
     <div >
-      <input type="text" onChange={handleChange} value={link} placeholder="Ссылка на ресурс"/>
+      <input name="url" type="text" onChange={handleChange} value={link} placeholder="Ссылка на ресурс"/>
       {error && <div className="error"
   
 >

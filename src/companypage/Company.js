@@ -1,13 +1,25 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Companydiv from './Companydiv.js'
 import './company.css'
 import CreatePage from './CreatePage.js'
+import { BASE_URL, TOKEN } from '../config.js'
 
 function Company() {
 
   const [showForm, setShowForm] = useState(false)
-  const a = [<Companydiv />, <Companydiv />, <Companydiv />, <Companydiv />, <Companydiv />]
-  
+  const [companies, setCompanies] = useState([])
+
+  useEffect(() => {
+    fetch(`${BASE_URL}/api/v2/author/company`, {
+      headers: {
+        "Authorization": `Bearer ${TOKEN}`
+      }
+    }).then((res) => {
+      return res.json()
+    }).then((data) => {
+      setCompanies(data)
+    })
+  }, [])
   return (
     <div className='company'>
       <div className='createComp'>
@@ -26,12 +38,9 @@ function Company() {
       </div>
       <div className='nameComp'> 
       <div className='companies'>
-        {a.map((item) =>{
-        return (
-          <div>{item}</div>
-        )
-        
-      })}
+        {companies.map((company) => {
+          return <Companydiv {...company} />
+        })}
       </div>
       </div>
      

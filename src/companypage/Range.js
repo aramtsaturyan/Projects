@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import './createpage.css'
 
 
-const Range = () => {
+const Range = ({handleChange}) => {
   const [rangeValue, setRangeValue] = useState(0); 
   const [textValue, setTextValue] = useState(0); 
 
@@ -14,15 +14,20 @@ const Range = () => {
     
     setTextValue((newValue * 100));
   };
+  
 
   const handleTextChange = (event) => {
     setTextValue(event.target.value);
   };
 
+  useEffect(() => {
+    handleChange(textValue)
+  }, [textValue])
+
   return (
     <div className="calcState">
       <div>
-      <input
+      <input name=""
         type="text"
         value={textValue}
         onChange={handleTextChange}
